@@ -4,6 +4,7 @@ import App from './App.tsx';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
+import 'react-toastify/dist/ReactToastify.css';
 import './style.scss';
 import './index.css';
 

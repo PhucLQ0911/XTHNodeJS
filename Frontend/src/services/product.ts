@@ -18,3 +18,12 @@ export const getProductById = async (id: number | string) => {
 		console.log(error);
 	}
 };
+
+export const createProduct = async (product: IProduct) => {
+	try {
+		const response = await instance.post(`/products`, product);
+		return response.data;
+	} catch (error) {
+		console.log(error);
+	}
+};

@@ -6,11 +6,11 @@ const LayoutAdmin = () => {
 	return (
 		<div>
 			<NavBar />
-			<div className="grid grid-cols-12">
+			<div className="grid grid-cols-12 mt-5">
 				<div className="col-span-2">
 					<Sidebar />
 				</div>
-				<div className="col-span-8">
+				<div className="col-span-10">
 					<Outlet />
 				</div>
 			</div>

@@ -23,7 +23,6 @@ const ProductList = ({ featured }: ProductListProps) => {
 				</div>
 				<div className="section-body">
 					<div className="product-list">
-						{console.log(products)}
 						{filteredProducts?.map((product: IProduct, index: number) => {
 							return (
 								<div key={index} className="product-item">
