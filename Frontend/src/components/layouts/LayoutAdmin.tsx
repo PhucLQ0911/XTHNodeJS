@@ -1,4 +1,20 @@
+import { Outlet } from 'react-router-dom';
+import NavBar from './admin/NavBar';
+import Sidebar from './admin/Sidebar';
+
 const LayoutAdmin = () => {
-	return <div>LayoutAdmin</div>;
+	return (
+		<div>
+			<NavBar />
+			<div className="grid grid-cols-12">
+				<div className="col-span-2">
+					<Sidebar />
+				</div>
+				<div className="col-span-8">
+					<Outlet />
+				</div>
+			</div>
+		</div>
+	);
 };
 export default LayoutAdmin;
