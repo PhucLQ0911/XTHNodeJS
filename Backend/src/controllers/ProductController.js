@@ -1,23 +1,17 @@
 import { StatusCodes } from "http-status-codes";
 import Product from "../models/product";
+import slugify from "slugify";
 
 export const create = async (req, res) => {
    try {
-      let productName = req.body.name;
-      productName = productName.toLowerCase();
-      productName = productName.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      productName = productName.replace(/[^a-z0-9 -]/g, "");
-      productName = productName.replace(/\s+/g, '-');
-      productName += `-${Date.now()}`;
-
       const product = await Product.create({
          ...req.body,
-         slug: productName
+         slug: slugify(req.body.name, "-"),
       });
 
       return res.status(StatusCodes.CREATED).json(product);
    } catch (error) {
-      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error);
    }
 };
 

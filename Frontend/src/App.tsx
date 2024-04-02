@@ -9,6 +9,7 @@ import DetailProduct from './pages/detail-product';
 import LayoutAdmin from './components/layouts/LayoutAdmin';
 import ProductManagement from './pages/admin/product';
 import ProductAddPage from './pages/admin/product/add';
+import CategoryDetail from './pages/CategoryDetail';
 function App() {
 	return (
 		<>
@@ -19,6 +20,7 @@ function App() {
 					<Route path="products/:id" element={<DetailProduct />} />
 					<Route path="about" element={<AboutPage />} />
 					<Route path="contact" element={<ContactPage />} />
+					<Route path="categories/:id" element={<CategoryDetail />} />
 					<Route path="*" element={<NotFound />} />
 				</Route>
 

@@ -4,11 +4,11 @@ const productSchema = new mongoose.Schema(
       name: {
          type: String,
          required: true,
-         lowercase: true,
       },
       slug: {
          type: String,
          unique: true,
+         lowercase: true
       },
       category: {
          type: mongoose.Schema.Types.ObjectId,

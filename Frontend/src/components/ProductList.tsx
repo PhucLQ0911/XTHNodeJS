@@ -44,7 +44,7 @@ const ProductList = ({ featured }: ProductListProps) => {
 											</Link>
 										</h3>
 										<a href="#" className="product__category">
-											category
+											{product?.category.name}
 										</a>
 										<div className="product-price">
 											<span className="product-price__new">

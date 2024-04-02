@@ -1,11 +1,14 @@
-import { ProductList } from "@/components";
+import { ProductList } from '@/components';
+import Categories from '@/components/Categories';
 
 const ShopPage = () => {
-    return (
-        <div>
-            <ProductList />
-        </div>
-    );
+	return (
+		<div>
+			<Categories />
+			<hr />
+			<ProductList />
+		</div>
+	);
 };
 
 export default ShopPage;
