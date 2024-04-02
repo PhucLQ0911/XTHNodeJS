@@ -23,7 +23,7 @@ export const create = async (req, res) => {
 
 export const getAllProducts = async (req, res) => {
    try {
-      const products = await Product.find();
+      const products = await Product.find().populate({ path: "category", select: "-_id -createdAt -updatedAt" }).select("-attributes");
       return res.status(StatusCodes.OK).json(products);
    } catch (error) {
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
@@ -32,7 +32,7 @@ export const getAllProducts = async (req, res) => {
 
 export const getProductById = async (req, res) => {
    try {
-      const product = await Product.findById(req.params.id);
+      const product = await Product.findById(req.params.id).populate({ path: "category", select: "-_id -createdAt -updatedAt" }).select("-attributes");;
       if (product.length === 0) {
          return res
             .status(StatusCodes.NOT_FOUND)
@@ -44,6 +44,7 @@ export const getProductById = async (req, res) => {
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
    }
 };
+
 export const deleteProductById = async (req, res) => {
    try {
       const product = await Product.findByIdAndDelete(req.params.id);

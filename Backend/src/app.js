@@ -1,10 +1,12 @@
 import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import { connectDB } from "./config/db";
 import cors from "cors";
+
+import { connectDB } from "./config/db";
 import AuthRouter from "./routers/AuthRouter"
-import Product from "./routers/ProductRouter";
+import ProductRouter from "./routers/ProductRouter";
+import CategoryRouter from "./routers/CategoryRouter";
 
 const app = express();
 dotenv.config();
@@ -19,6 +21,7 @@ connectDB(process.env.DB_URI);
 
 //Router
 app.use("/api/v1", AuthRouter);
-app.use("/api/v1", Product);
+app.use("/api/v1", ProductRouter);
+app.use("/api/v1", CategoryRouter);
 
 export const viteNodeApp = app;
