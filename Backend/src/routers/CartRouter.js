@@ -1,8 +1,27 @@
 import { Router } from "express";
-import { addItemToCart, getProductInCartByUser, removeFromCart } from "../controllers/CartController";
+import {
+   addItemToCart,
+   decreaseProductQuantity,
+   getProductInCartByUser,
+   increaseProductQuantity,
+   removeFromCart,
+   updateProductQuantity
+}
+   from "../controllers/CartController";
 
 const router = Router();
-router.post("/cart/add", addItemToCart);
-router.get("/cart/:id", getProductInCartByUser);
-router.delete("/cart/remove", removeFromCart);
+
+// lấy danh sách sản phẩm trong giỏ hàng dựa vào ID
+router.get("/carts/:userId", getProductInCartByUser);
+// Thêm sản phẩm vào giỏ hàng
+router.post("/carts/add-to-cart", addItemToCart);
+// Cập nhật số lượng của sản phẩm trong giỏ hàng từ input
+router.post("/carts/update", updateProductQuantity);
+// Xóa item trong giỏ hàng
+router.post("/carts/remove", removeFromCart);
+// Tăng số lượng của sản phẩm trong giỏ hàng
+router.post("/carts/increase", increaseProductQuantity);
+// Giảm số lượng của sản phẩm trong giỏ hàng
+router.post("/carts/decrease", decreaseProductQuantity);
+
 export default router;

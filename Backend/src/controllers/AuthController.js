@@ -84,12 +84,12 @@ export const signin = async (req, res) => {
       const user = await User.findOne({ email });
 
       if (!user) {
-         return res.status(StatusCodes.BAD_REQUEST).json({ message: "Email is invalid." });
+         return res.status(StatusCodes.BAD_REQUEST).json({ email: "Email is not exits." });
       }
 
       const isMatchPassword = await bcryptjs.compare(password, user.password);
       if (!isMatchPassword) {
-         return res.status(StatusCodes.BAD_REQUEST).json({ message: "Password is wrong." });
+         return res.status(StatusCodes.BAD_REQUEST).json({ password: "Password is wrong." });
       }
 
       const token = await jwt.sign({ userId: user._id }, "123456", { expiresIn: "30m" });

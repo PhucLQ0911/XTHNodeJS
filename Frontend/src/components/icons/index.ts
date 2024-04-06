@@ -6,7 +6,7 @@ import CupIcon from '@/assets/icons/10.svg';
 import VerifyIcon from '@/assets/icons/11.svg';
 import FreeShipIcon from '@/assets/icons/12.svg';
 import SupportIcon from '@/assets/icons/13.svg';
-
+import RemoveIcon from '@/assets/remove.png';
 import Logo from '@/assets/logo.svg';
 
 export {
@@ -17,6 +17,7 @@ export {
 	Logo,
 	CupIcon,
 	VerifyIcon,
-   FreeShipIcon,
-   SupportIcon
+	FreeShipIcon,
+	SupportIcon,
+	RemoveIcon,
 };

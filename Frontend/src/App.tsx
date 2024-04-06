@@ -10,6 +10,8 @@ import LayoutAdmin from './components/layouts/LayoutAdmin';
 import ProductManagement from './pages/admin/product';
 import ProductAddPage from './pages/admin/product/add';
 import CategoryDetail from './pages/CategoryDetail';
+import SignIn from './pages/SignIn';
+import CartPage from './pages/Cart';
 function App() {
 	return (
 		<>
@@ -21,6 +23,8 @@ function App() {
 					<Route path="about" element={<AboutPage />} />
 					<Route path="contact" element={<ContactPage />} />
 					<Route path="categories/:id" element={<CategoryDetail />} />
+					<Route path="signin" element={<SignIn />} />
+					<Route path="cart" element={<CartPage />} />
 					<Route path="*" element={<NotFound />} />
 				</Route>
 
